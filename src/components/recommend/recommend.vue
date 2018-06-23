@@ -2,114 +2,32 @@
   <div class="recommend">
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
-        <div class="slider-wrapper">
+        <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
-            <div>
-              <a href="http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg">
-                <img @load="loadImage" src="http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg"/>
-              </a>
-            </div>
-            <div>
-              <a href="http://img1.qunarzz.com/piao/fusion/1802/42/7c92b9a381e46402.jpg_640x200_1cdce2a4.jpg">
-                <img @load="loadImage" src="http://img1.qunarzz.com/piao/fusion/1802/42/7c92b9a381e46402.jpg_640x200_1cdce2a4.jpg"/>
-              </a>
-            </div>
-            <div>
-              <a href="http://img1.qunarzz.com/piao/fusion/1802/51/e78f936a5b404102.jpg_640x200_c14f0b3a.jpg">
-                <img @load="loadImage" src="http://img1.qunarzz.com/piao/fusion/1802/51/e78f936a5b404102.jpg_640x200_c14f0b3a.jpg"/>
+            <div v-for="item in recommends" :key="item.id">
+              <a :href="item.linkUrl">
+                <img @load="loadImage" :src="item.picUrl">
               </a>
             </div>
           </slider>
         </div>
-
         <div class="recommend-list">
           <h1 class="list-title">热门歌单推荐</h1>
           <ul>
-            <li class="item">
+            <li v-for="item in discList" class="item" :key="item.dissid">
               <div class="icon">
-                <img @load="loadImage" width="60" height="60" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg"/>
+                <img width="60" height="60" :src="item.imgurl">
               </div>
               <div class="text">
-                <h2 class="name">name for test name for test name for test name for test name for test name for test</h2>
-                <p class="desc">东方宫殿建筑代表，世界宫殿建筑典范</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="icon">
-                <img @load="loadImage" width="60" height="60" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg"/>
-              </div>
-              <div class="text">
-                <h2 class="name">name for test name for test</h2>
-                <p class="desc">北京专业级滑雪圣地 北京专业级滑雪圣地 北京专业级滑雪圣地</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="icon">
-                <img @load="loadImage" width="60" height="60" src="http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg"/>
-              </div>
-              <div class="text">
-                <h2 class="name">name for test name for test</h2>
-                <p class="desc">我爱北京天安门，天安门上太阳升</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="icon">
-                <img @load="loadImage" width="60" height="60" src="http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg"/>
-              </div>
-              <div class="text">
-                <h2 class="name">name for test name for test</h2>
-                <p class="desc">我爱北京天安门，天安门上太阳升</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="icon">
-                <img @load="loadImage" width="60" height="60" src="http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg"/>
-              </div>
-              <div class="text">
-                <h2 class="name">name for test name for test</h2>
-                <p class="desc">我爱北京天安门，天安门上太阳升</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="icon">
-                <img @load="loadImage" width="60" height="60" src="http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg"/>
-              </div>
-              <div class="text">
-                <h2 class="name">name for test name for test</h2>
-                <p class="desc">我爱北京天安门，天安门上太阳升</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="icon">
-                <img @load="loadImage" width="60" height="60" src="http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg"/>
-              </div>
-              <div class="text">
-                <h2 class="name">name for test name for test</h2>
-                <p class="desc">我爱北京天安门，天安门上太阳升</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="icon">
-                <img @load="loadImage" width="60" height="60" src="http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg"/>
-              </div>
-              <div class="text">
-                <h2 class="name">name for test name for test</h2>
-                <p class="desc">我爱北京天安门，天安门上太阳升</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="icon">
-                <img width="60" @load="loadImage" height="60" src="http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg"/>
-              </div>
-              <div class="text">
-                <h2 class="name">name for test name for test</h2>
-                <p class="desc">我爱北京天安门，天安门上太阳升</p>
+                <h2 class="name" v-html="item.creator.name"></h2>
+                <p class="desc" v-html="item.dissname"></p>
               </div>
             </li>
           </ul>
         </div>
       </div>
     </scroll>
+    <router-view></router-view>
   </div>
 </template>
 
