@@ -50,6 +50,10 @@ export default {
       this._setSliderWidth(true)
       this.slider.refresh()
     })
+
+    if (this.autoPlay) {
+      this._play()
+    }
   },
   methods: {
     _setSliderWidth(isResize) {
