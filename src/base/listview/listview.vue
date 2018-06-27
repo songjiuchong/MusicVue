@@ -84,6 +84,15 @@ export default {
       this.scrollY = pos.y
     },
     _scrollTo(index) {
+      if (!index && index !== 0) {
+        return
+      }
+      if (index < 0) {
+        index = 0
+      } else if (index > this.listHeight.length - 2) {
+        index = this.listHeight.length - 2
+      }
+      this.scrollY = -this.listHeight[index]
       this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
     },
     _calculateHeight() {
@@ -124,7 +133,7 @@ export default {
       }
 
       // 当滚动到歌手列表底部继续向下滚动;
-      this.currentIndex = listHeight - 2
+      this.currentIndex = listHeight.length - 2
     }
   },
   components: {
