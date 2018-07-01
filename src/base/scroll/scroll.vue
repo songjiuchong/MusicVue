@@ -65,8 +65,6 @@ export default {
   watch: {
     data() {
       setTimeout(() => {
-        console.log(this.data.length)
-        console.log(this.$refs.wrapper.clientHeight)
         this.refresh()
       }, 20)
     }
